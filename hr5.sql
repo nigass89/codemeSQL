@@ -18,7 +18,11 @@ update pracownicy set employee_id=666 where first_name like 'Steven' and last_na
 
 update pracownicy set salary=8000 where employee_id=116 and salary<6000;
 
+update pracownicy set inicialy=(SUBSTR(first_name,1,1)||'.'||SUBSTR(last_name,1,1))||'.';
 
+update pracownicy set plec='M' where first_name not like '%a';
+
+update pracownicy set phone_number=
 
 commit;
 rollback;
