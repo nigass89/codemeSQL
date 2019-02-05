@@ -28,7 +28,9 @@ update pracownicy set phone_number='0048 '||REPLACE(phone_number, '.', ' ');
 --zaszeregowanie - officer jesli zarobki wieksze niz srednie w departamencie
 update pracownicy p set p.zaszeregowanie='non officer' where p.salary < (select avg(o.salary) from pracownicy o where p.department_id=o.department_id group by o.department_id);
 
-select * from employees where department_id not in (select department_id from departments); --departamenty bez pracownikow
+delete from  where location_id=(select d.location_id from departments d, employees e where not d.department_id=e.department_id group by d.department_id);--departamenty bez pracownikow
+
+select d.department_id from departments d, employees e where d.department_id=e.department_id group by d.department_id;
 
 select * from locations where location_id in (select location_id from locations); --miasta bez departamentow
 
