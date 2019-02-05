@@ -1,1 +1,1 @@
-select * from EMPLOYEES;
+select * from EMPLOYEES where last_name like 'King';
