@@ -1,4 +1,9 @@
->>>>>>>>>>>>>>>>>>>>>>>>>>>>> DAY 6.1
+-->>>>>>>>>>>>>>>>>>>>>>>>>>>>> DAY6
+test
+
+
+
+-->>>>>>>>>>>>>>>>>>>>>>>>>>>>> DAY 6.1
 -- 3 najwyzsze zarobki do zwolnienia
 delete from pracownicy where employee_id=(select employee_id from (SELECT employee_id FROM (SELECT * FROM pracownicy ORDER BY Salary desc) WHERE rownum <= 3 ORDER BY Salary) where rownum=1);
 
