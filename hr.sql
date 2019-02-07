@@ -19,3 +19,14 @@ create view anon_emp_dept as select b.employee_id, b.phone_number, b.hire_date, 
 
 select * from anon_emp_dept;
 
+--refresh
+begin dbms_mview.refresh('widoczek2'); end; 
+/
+
+create materialized view widoczek2 as select l.city, c.country_name, r.region_name from lokalizacje l, kraje c, regiony r where l.country_id=c.country_id and c.region_id=r.region_id;
+
+delete from regiony where region_id=3;
+
+drop materialized view widoczek;
+
+rollback;
